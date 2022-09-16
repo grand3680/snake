@@ -1,0 +1,140 @@
+#main_canvas {
+    height: 600px;
+    width: 600px;
+    position: relative;
+    border: rgb(29, 23, 23) 10px solid;
+    display: inline-flex;
+    z-index: 100;
+}
+
+
+#canvas_backround {
+    height: 600px;
+    width: 600px;
+    position: absolute;
+    border: rgb(153, 29, 29) 10px solid;
+    top: 390px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+body {
+    background-color: #242427;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+img {
+    display: flex;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+img:hover {
+    transform: scale(1.05);
+}
+
+.hidden *, .hidden {
+    display: none;
+}
+
+#hidden_block {
+    border: 1px white solid;
+    padding: 5px;
+    width: 590px;
+    position: relative;
+    top: -500px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10001;
+}
+
+label {
+    font-size: 25px;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+}
+
+h1 {
+    font-size: 50px;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+}
+
+h2 {
+    font-size: 60px;
+    font-family:sans-serif;
+    color: white;
+}
+
+input {
+    width: 20px;
+    height: 20px;
+}
+
+input[onclick="borderOn();"] {
+    margin-right: 25px;    
+}
+
+#sizePlaceTitle,  #speedTitle {
+    font-size: 30px;
+    font-family:sans-serif;
+    color: white; 
+}
+
+#sizePlace, #speed_ {
+    width: 100px;
+    height: 35px;
+}
+
+button {
+    width: 100px;
+    height: 35px;
+    font-size: 30px;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+.WinWindow {
+    opacity: 90%;
+    background-color: #645140;
+    position: relative;
+    top: -450px;
+    z-index: 1000;
+}
+
+.WinWindow * {
+    display: inline-flex;
+}
+
+.WinWindow h2{
+    font-size: 40px;
+    font-weight: 900;
+    letter-spacing: 2.5px;
+    font-family:'Courier New', Courier, monospace;
+    color: gold;
+}
+
+input[name="close"]:hover {
+    border: none;
+    box-shadow: none;
+    transform: scale(1.15);
+    color: #382c2c;
+}
+
+input[name="close"] {
+    background: none;
+    border: none;
+    font-family: cursive;
+    color: black;
+    cursor: pointer;
+    font-size: 40px;
+}
