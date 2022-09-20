@@ -162,7 +162,7 @@ function checkDead() {
                 return;      
             }, 1800);
         }
-    }   
+    }
 
     if (border == true) {
         if ((x >= n || y >= n) || (x <= -1 || y <= -1)) {
@@ -229,6 +229,61 @@ function move_snake(i1, j1) {
 // функция которая показывает какой длины змейка
 function lengthSnake() {document.getElementById("lengthSnake").textContent = tails.length;}
 lengthSnake();
+
+
+document.addEventListener("touchstart", handleTouchStart, false);
+document.addEventListener("touchmove", handleTouchMove, false);
+var xDown = null;
+var yDown = null;
+
+function getTouches(evt) {
+    return evt.touches
+};
+
+function handleTouchStart(evt) {
+    const firstTouch = getTouches(evt)[0];
+    xDown = firstTouch.clientX;
+    yDown = firstTouch.clientY;
+};
+
+function handleTouchMove(evt) {
+    if ( ! xDown || ! yDown ) {
+        return;
+    }
+
+    var xUp = evt.touches[0].clientX;
+    var yUp = evt.touches[0].clientY;
+
+    var xDiff = xDown - xUp;
+    var yDiff = yDown - yUp;
+
+    if ( Math.abs(xDiff) > Math.abs(yDiff)) {
+
+        if (xDiff > 0) {
+            if(canMove == true && (tails[0][0] != tails[1][0] && tails[0][1] - 1 != tails[1][1]) && _vector_ != "left")  { _vector_ = "left";}
+            if(canMove == true && firtsMove == true) { _vector_ = "left";}
+        } else {
+            if(canMove == true && (tails[0][0] != tails[1][0] && tails[0][1] + 1 != tails[1][1]) && _vector_ != "right") { _vector_ = "right";}
+            if(canMove == true && firtsMove == true) { _vector_ = "right";}
+
+        }
+    }
+    if ( Math.abs(xDiff) < Math.abs(yDiff )){
+
+        if (yDiff > 0) {
+            if(canMove == true && (tails[0][0] - 1 != tails[1][0] && tails[0][1] != tails[1][1]) && _vector_ != "up")    { _vector_ = "up";}
+            if(canMove == true && firtsMove == true) { _vector_ = "up";}
+        } else {
+            if(canMove == true && (tails[0][0] + 1 != tails[1][0] && tails[0][1] != tails[1][1]) && _vector_ != "down")  { _vector_ = "down";}  
+            if(canMove == true && firtsMove == true) { _vector_ = "down";}   
+        }
+    }
+}
+
+/* свайп был, обнуляем координаты */
+xDown = null;
+yDown = null;
+
 
 function __vector__() {
     document.addEventListener("keydown", function(event) {
