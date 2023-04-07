@@ -23,7 +23,7 @@ var tails = [[x, y], [x, y], [x, y]];
 var mas_Cherry = ["", ""];
 
 
-// Изменяет размеры фона
+// change size backround
 function makeBackround(i) {
     n = i;
     _width_ = _canvas_width_ / n;
@@ -38,7 +38,7 @@ function makeBackround(i) {
     tails[0][1] = y;
 
 
-    // убратие прошлого цикла ( Так-как значение изменены )
+    // delete privius timer
     clearInterval(timer);
     draw_backround();
     goCherry();         
@@ -46,25 +46,12 @@ function makeBackround(i) {
 }
 
 
-// смерть окно
-function CloseWindow() {
-    document.getElementById("pWindow").style.display = "none";
-}
+function CloseWindow() {document.getElementById("pWindow").style.display = "none";}
+function _speed_(i) {speed = i;}
+function setup() {document.getElementById("hidden_block").classList.toggle('hidden');}
 
 
-// изменение скорости
-function _speed_(i) {
-    speed = i;
-}
-
-
-// убратие и добавление класса к настройкам
-function setup() {
-    document.getElementById("hidden_block").classList.toggle('hidden');
-}
-
-
-// спавнем в случайное место ягоду
+// set random position to cherry
 function goCherry() {
     let random_x = Math.floor(Math.random() * n);
     let random_y = Math.floor(Math.random() * n);
@@ -83,7 +70,7 @@ function goCherry() {
 }
 
 
-// отрисовываем фон 
+// draw backround
 function draw_backround() {
     ctx_back.clearRect(0, 0, _canvas_width_, _canvas_height_);
     for (var i = 0; i < n; i++){
@@ -100,7 +87,7 @@ function draw_backround() {
 }
 
 
-// отрисовываем ягоды, и все хвосты змейки
+// draw cherry and snake tails
 function _draw_snake_() {
 	ctx.clearRect(0, 0, _canvas_width_, _canvas_height_);
     ctx.beginPath();
@@ -154,7 +141,7 @@ function checkDead() {
             canMove = false;
 
             let dead = document.getElementById("menu_dead");
-            dead.textContent = "смерть от туловища";            
+            dead.textContent = "you touch youself";            
             document.getElementById("pWindow").style.display = "block";
             setTimeout(() => {
                 CloseWindow();
@@ -171,7 +158,7 @@ function checkDead() {
             canMove = false;
 
             let dead = document.getElementById("menu_dead");
-            dead.textContent = "смерть от границ";                
+            dead.textContent = "dead from border";                
             document.getElementById("pWindow").style.display = "block";
             setTimeout(() => {
                 CloseWindow();
@@ -208,7 +195,7 @@ function checkDead() {
 
 function move_snake(i1, j1) {
     try {
-        // если хвостов больше двух то....
+        // if tail longer than two....
         if (tails.length >= 2) { 
             // запускаем цикл от конца
             for (let k = tails.length - 1; k >= 1; k--) {
@@ -226,7 +213,6 @@ function move_snake(i1, j1) {
 }  
 
 
-// функция которая показывает какой длины змейка
 function lengthSnake() {document.getElementById("lengthSnake").textContent = tails.length;}
 lengthSnake();
 
@@ -280,7 +266,6 @@ function handleTouchMove(evt) {
     }
 }
 
-/* свайп был, обнуляем координаты */
 xDown = null;
 yDown = null;
 
@@ -296,13 +281,25 @@ function __vector__() {
         if(canMove == true && event.key == "ArrowDown"  && firtsMove == true) { _vector_ = "down";}   
         if(canMove == true && event.key == "ArrowLeft"  && firtsMove == true) { _vector_ = "left";}
         if(canMove == true && event.key == "ArrowRight" && firtsMove == true) { _vector_ = "right";}
+	    
+	if(canMove == true && event.code == "KeyW"    && (tails[0][0] - 1 != tails[1][0] && tails[0][1] != tails[1][1]) && _vector_ != "up")    { _vector_ = "up";}
+        if(canMove == true && event.code == "KeyS"  && (tails[0][0] + 1 != tails[1][0] && tails[0][1] != tails[1][1]) && _vector_ != "down")  { _vector_ = "down";}   
+        if(canMove == true && event.code == "KeyA"  && (tails[0][0] != tails[1][0] && tails[0][1] - 1 != tails[1][1]) && _vector_ != "left")  { _vector_ = "left";}
+        if(canMove == true && event.code == "KeyD" && (tails[0][0] != tails[1][0] && tails[0][1] + 1 != tails[1][1]) && _vector_ != "right") { _vector_ = "right";}
+
+        if(canMove == true && event.code == "KeyW"    && firtsMove == true) { _vector_ = "up";}
+        if(canMove == true && event.code == "KeyS"  && firtsMove == true) { _vector_ = "down";}   
+        if(canMove == true && event.code == "KeyA"  && firtsMove == true) { _vector_ = "left";}
+        if(canMove == true && event.code == "KeyD" && firtsMove == true) { _vector_ = "right";}
+		
+        firtsMove = false;
         firtsMove = false;
     });    
 }
 
 
 function _moving_() {
-    // если голова имеет такие-же корды как ягода то...
+    // If head have position same with cherry
     if (mas_Cherry[0] == tails[0][0] && mas_Cherry[1] == tails[0][1]) {
         mas_Cherry[0] = "";
         mas_Cherry[1] = "";
