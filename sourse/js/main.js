@@ -136,7 +136,7 @@ function checkDead() {
 
     for (let k = tails.length - 1; k > 1; k--) {
         if ((x == tails[k][0] && y == tails[k][1])) {
-            // смерть от туловища
+            // dead from body
             _vector_ = "";
             canMove = false;
 
@@ -153,7 +153,7 @@ function checkDead() {
 
     if (border == true) {
         if ((x >= n || y >= n) || (x <= -1 || y <= -1)) {
-            // смерть от границ
+            // dead from borders
             _vector_ = "";
             canMove = false;
 
@@ -197,9 +197,8 @@ function move_snake(i1, j1) {
     try {
         // if tail longer than two....
         if (tails.length >= 2) { 
-            // запускаем цикл от конца
+            // start for
             for (let k = tails.length - 1; k >= 1; k--) {
-                // присваеваем k (нумерация списка) k-1
                 if (tails[k - 1][0] == "empty" && tails[k - 1][1] == "empty") continue;
                 tails[k][0] = tails[k - 1][0];  
                 tails[k][1] = tails[k - 1][1];   
