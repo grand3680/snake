@@ -272,14 +272,14 @@ yDown = null;
 function __vector__() {
     document.addEventListener("keydown", function(event) {
         if(canMove == true && (event.key == "ArrowUp" || event.code == "KeyW") && (tails[0][0] - 1 != tails[1][0] && tails[0][1] != tails[1][1]) && _vector_ != "up")    { _vector_ = "up";}
-        if(canMove == true && event.key == "ArrowDown" || event.code == "KeyS")  && (tails[0][0] + 1 != tails[1][0] && tails[0][1] != tails[1][1]) && _vector_ != "down")  { _vector_ = "down";}   
-        if(canMove == true && event.key == "ArrowLeft" || event.code == "KeyA")  && (tails[0][0] != tails[1][0] && tails[0][1] - 1 != tails[1][1]) && _vector_ != "left")  { _vector_ = "left";}
-        if(canMove == true && event.key == "ArrowRight" || event.code == "KeyD") && (tails[0][0] != tails[1][0] && tails[0][1] + 1 != tails[1][1]) && _vector_ != "right") { _vector_ = "right";}
+        if(canMove == true && (event.key == "ArrowDown" || event.code == "KeyS")  && (tails[0][0] + 1 != tails[1][0] && tails[0][1] != tails[1][1]) && _vector_ != "down")  { _vector_ = "down";}   
+        if(canMove == true && (event.key == "ArrowLeft" || event.code == "KeyA")  && (tails[0][0] != tails[1][0] && tails[0][1] - 1 != tails[1][1]) && _vector_ != "left")  { _vector_ = "left";}
+        if(canMove == true && (event.key == "ArrowRight" || event.code == "KeyD") && (tails[0][0] != tails[1][0] && tails[0][1] + 1 != tails[1][1]) && _vector_ != "right") { _vector_ = "right";}
 
-        if(canMove == true && event.key == "ArrowUp" || event.code == "KeyW")    && firtsMove == true) { _vector_ = "up";}
-        if(canMove == true && event.key == "ArrowDown" || event.code == "KeyS")  && firtsMove == true) { _vector_ = "down";}   
-        if(canMove == true && event.key == "ArrowLeft" || event.code == "KeyA")  && firtsMove == true) { _vector_ = "left";}
-        if(canMove == true && event.key == "ArrowRight" || event.code == "KeyD") && firtsMove == true) { _vector_ = "right";}
+        if(canMove == true && (event.key == "ArrowUp" || event.code == "KeyW")    && firtsMove == true) { _vector_ = "up";}
+        if(canMove == true && (event.key == "ArrowDown" || event.code == "KeyS")  && firtsMove == true) { _vector_ = "down";}   
+        if(canMove == true && (event.key == "ArrowLeft" || event.code == "KeyA")  && firtsMove == true) { _vector_ = "left";}
+        if(canMove == true && (event.key == "ArrowRight" || event.code == "KeyD") && firtsMove == true) { _vector_ = "right";}
 	    
         firtsMove = false;
     });    
