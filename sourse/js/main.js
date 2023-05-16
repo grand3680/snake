@@ -27,7 +27,7 @@ var mas_Cherry = ["", ""];
 function makeBackround(i) {
     n = i;
     _width_ = _canvas_width_ / n;
-    // центрирование змейки по центру карты
+    // centering the snake in the center of the map
     for (let k = 0; k < tails.length; k++) {
         tails[k][0] = "empty";
         tails[k][1] = "empty";
@@ -204,9 +204,9 @@ function move_snake(i1, j1) {
                 tails[k][1] = tails[k - 1][1];   
             }            
         }
-        // движение головы ( голова под номером 0 )
-        tails[0][0] = i1; // x кордината
-        tails[0][1] = j1; // y кордината
+        // head movement ( head number 0)
+        tails[0][0] = i1; // x Cordinata
+        tails[0][1] = j1; // y Cordinata
         checkDead();
     } catch(e) {}
 }  
