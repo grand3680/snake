@@ -271,27 +271,16 @@ yDown = null;
 
 function __vector__() {
     document.addEventListener("keydown", function(event) {
-        if(canMove == true && event.key == "ArrowUp"    && (tails[0][0] - 1 != tails[1][0] && tails[0][1] != tails[1][1]) && _vector_ != "up")    { _vector_ = "up";}
-        if(canMove == true && event.key == "ArrowDown"  && (tails[0][0] + 1 != tails[1][0] && tails[0][1] != tails[1][1]) && _vector_ != "down")  { _vector_ = "down";}   
-        if(canMove == true && event.key == "ArrowLeft"  && (tails[0][0] != tails[1][0] && tails[0][1] - 1 != tails[1][1]) && _vector_ != "left")  { _vector_ = "left";}
-        if(canMove == true && event.key == "ArrowRight" && (tails[0][0] != tails[1][0] && tails[0][1] + 1 != tails[1][1]) && _vector_ != "right") { _vector_ = "right";}
+        if(canMove == true && (event.key == "ArrowUp" || event.code == "KeyW") && (tails[0][0] - 1 != tails[1][0] && tails[0][1] != tails[1][1]) && _vector_ != "up")    { _vector_ = "up";}
+        if(canMove == true && event.key == "ArrowDown" || event.code == "KeyS")  && (tails[0][0] + 1 != tails[1][0] && tails[0][1] != tails[1][1]) && _vector_ != "down")  { _vector_ = "down";}   
+        if(canMove == true && event.key == "ArrowLeft" || event.code == "KeyA")  && (tails[0][0] != tails[1][0] && tails[0][1] - 1 != tails[1][1]) && _vector_ != "left")  { _vector_ = "left";}
+        if(canMove == true && event.key == "ArrowRight" || event.code == "KeyD") && (tails[0][0] != tails[1][0] && tails[0][1] + 1 != tails[1][1]) && _vector_ != "right") { _vector_ = "right";}
 
-        if(canMove == true && event.key == "ArrowUp"    && firtsMove == true) { _vector_ = "up";}
-        if(canMove == true && event.key == "ArrowDown"  && firtsMove == true) { _vector_ = "down";}   
-        if(canMove == true && event.key == "ArrowLeft"  && firtsMove == true) { _vector_ = "left";}
-        if(canMove == true && event.key == "ArrowRight" && firtsMove == true) { _vector_ = "right";}
+        if(canMove == true && event.key == "ArrowUp" || event.code == "KeyW")    && firtsMove == true) { _vector_ = "up";}
+        if(canMove == true && event.key == "ArrowDown" || event.code == "KeyS")  && firtsMove == true) { _vector_ = "down";}   
+        if(canMove == true && event.key == "ArrowLeft" || event.code == "KeyA")  && firtsMove == true) { _vector_ = "left";}
+        if(canMove == true && event.key == "ArrowRight" || event.code == "KeyD") && firtsMove == true) { _vector_ = "right";}
 	    
-	if(canMove == true && event.code == "KeyW"    && (tails[0][0] - 1 != tails[1][0] && tails[0][1] != tails[1][1]) && _vector_ != "up")    { _vector_ = "up";}
-        if(canMove == true && event.code == "KeyS"  && (tails[0][0] + 1 != tails[1][0] && tails[0][1] != tails[1][1]) && _vector_ != "down")  { _vector_ = "down";}   
-        if(canMove == true && event.code == "KeyA"  && (tails[0][0] != tails[1][0] && tails[0][1] - 1 != tails[1][1]) && _vector_ != "left")  { _vector_ = "left";}
-        if(canMove == true && event.code == "KeyD" && (tails[0][0] != tails[1][0] && tails[0][1] + 1 != tails[1][1]) && _vector_ != "right") { _vector_ = "right";}
-
-        if(canMove == true && event.code == "KeyW"    && firtsMove == true) { _vector_ = "up";}
-        if(canMove == true && event.code == "KeyS"  && firtsMove == true) { _vector_ = "down";}   
-        if(canMove == true && event.code == "KeyA"  && firtsMove == true) { _vector_ = "left";}
-        if(canMove == true && event.code == "KeyD" && firtsMove == true) { _vector_ = "right";}
-		
-        firtsMove = false;
         firtsMove = false;
     });    
 }
@@ -310,29 +299,10 @@ function _moving_() {
     }
 
     try {
-        if (_vector_ === "up") { 
-            move_snake(tails[0][0] - 1, tails[0][1]);
-        }                
-    } catch(e) {}
-
-
-    try {
-        if (_vector_ === "down") {
-            move_snake(tails[0][0] + 1, tails[0][1]);
-        }                   
-    } catch(e) {}
-
-
-    try {
-        if (_vector_ === "left") {
-            move_snake(tails[0][0], tails[0][1] - 1);
-        }                  
-    } catch(e) {}
-
-    try {
-        if (_vector_ === "right") {
-            move_snake(tails[0][0], tails[0][1] + 1);
-        }                    
+        if (_vector_ === "up") {move_snake(tails[0][0] - 1, tails[0][1]);}                
+	else if (_vector_ === "down") {move_snake(tails[0][0] + 1, tails[0][1]);}   
+        else if (_vector_ === "left") {move_snake(tails[0][0], tails[0][1] - 1);}
+        else if (_vector_ === "right") {move_snake(tails[0][0], tails[0][1] + 1);}   
     } catch(e) {}
 
     _draw_snake_();
