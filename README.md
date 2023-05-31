@@ -3,3 +3,5 @@ snake by me
 for learning codes and practices
 
 link for play - https://grand3680.github.io/snake/
+
+<img height="350" src="https://camo.githubusercontent.com/f0bffa01b89118af9e73048dcf3754b611abf1cc7a0672597544f9b2e5437d05/68747470733a2f2f6d65646961342e67697068792e636f6d2f6d656469612f76312e59326c6b505463354d4749334e6a4578596a55324f4445324e6d51304d444d30597a45344e6a466c595751344d474e6b4d4442694e44466b4d6a566c4e4749794d6d49785a535a6c634431324d563970626e526c636d35686246396e61575a7a583264705a6b6c6b4a6d4e305057632f6c414a477353425a567263553668673263572f67697068792e676966" data-canonical-src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExYjU2ODE2NmQ0MDM0YzE4NjFlYWQ4MGNkMDBiNDFkMjVlNGIyMmIxZSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/lAJGsSBZVrcU6hg2cW/giphy.gif" style="max-width: 100%; display: inline-block;" data-target="animated-image.originalImage">
